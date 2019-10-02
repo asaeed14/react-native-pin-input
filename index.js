@@ -6,6 +6,7 @@ import {View, StyleSheet, TextInput} from 'react-native';
 import Immutable from 'immutable';
 type P ={
     keyboardType?: string,
+    autoCapitalize?:sting,
     placeholder?: string,
     autoFocus: boolean,
     value?: string,
@@ -157,6 +158,7 @@ export default class PinInput extends Component<void,P,S> {
                                 underlineColorAndroid={(this.props.pinItemProps || {}).underlineColorAndroid || undefined}
                                 maxLength={1}
                                 onFocus={async (e) => await this.onPinFocus(i)}
+                                autoCapitalize={(this.props.pinItemProps || {}).autoCapitalize || 'none'}
                                 onChangeText={async (t) => {
                                     await this.onPinItemChanged(i, t);
                                 }}
